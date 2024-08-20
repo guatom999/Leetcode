@@ -8,7 +8,6 @@ var rotate = function (nums, k) {
     let keep = 0
     for (let i = 0; i < nums.length; i++) {
         newIndex = (i+k) % nums.length
-        // console.log("new index is" , newIndex)
         rotateArr[newIndex] = nums[i]
     }
 
