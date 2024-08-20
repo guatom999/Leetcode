@@ -5,7 +5,6 @@
  */
 var rotate = function (nums, k) {
     let rotateArr = new Array(nums.length)
-    let keep = 0
     for (let i = 0; i < nums.length; i++) {
         newIndex = (i+k) % nums.length
         rotateArr[newIndex] = nums[i]
@@ -14,7 +13,5 @@ var rotate = function (nums, k) {
     for(let i = 0 ; i < nums.length;i++){
         nums[i] = rotateArr[i]
     }
-
-    console.log("rotateArr is" , rotateArr)
 
 };
