@@ -4,16 +4,13 @@
  * @return {number[]}
  */
 var twoSum = function (nums, target) {
-    let result = []
-    for (let i = 0; i < nums.length; i++) {
-        for (let x = i + 1; x < nums.length; x++) {
-            if (nums[i] + nums[x] == target) {
-                result.push(i, x)
-            }
+    var sumMap = new Map()
+    for(let i = 0 ; i < nums.length;i++){
+        different = target - nums[i]
+        if(sumMap.get(different) != undefined){
+            return [sumMap.get(different),i]
         }
+        sumMap.set(nums[i], i)
     }
 
-    // console.log("result", result)
-    return result
-    
 };
