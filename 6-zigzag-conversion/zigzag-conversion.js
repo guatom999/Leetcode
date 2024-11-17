@@ -4,12 +4,10 @@
  * @return {string}
  */
 var convert = function (s, numRows) {
-
     newNumRows = numRows === 1 ? s.length : numRows
     beforeResult = new Array(newNumRows).fill("");
     plus = true
     toAdd = 0;
-    plus = true
     for (let i = 0; i < s.length; i++) {
         beforeResult[toAdd] += s[i]
         if(toAdd === 0){
