@@ -3,11 +3,15 @@
  * @return {number[]}
  */
 var plusOne = function (digits) {
-    var result = [];
-    let bigIntNum = BigInt(digits.join("")) + 1n; // Use BigInt for large numbers
-    let afterPlus = bigIntNum.toString();
-    for (let i = 0; i < afterPlus.length; i++) {
-        result.push(parseInt(afterPlus[i]));
+    for (let i = digits.length - 1; i >= 0; i--) {
+        digits[i]++
+        if (digits[i] < 10) {
+            console.log(digits[i])
+            return digits;
+        }
+        digits[i] = 0
     }
-    return result;
+
+    return [1, ...digits]
+
 };
