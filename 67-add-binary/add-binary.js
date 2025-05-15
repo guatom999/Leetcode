@@ -13,14 +13,14 @@ var addBinary = function (a, b) {
         bBit = b[b.length - 1 - i] ? parseInt(b[b.length - 1 - i]) : 0
 
         let sum = aBit + bBit + carry
-        result += (sum % 2)
+        result = (sum%2) + result
         carry = Math.floor(sum/2)
     }
 
     if(carry != 0){
-        result += '1'
+        result = '1' + result
     }
 
-    return result.split('').reverse().join('')
+    return result
 
 };
