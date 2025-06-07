@@ -2,32 +2,20 @@
  * @param {string} s
  * @return {number}
  */
-var romanToInt = function (s) {
-    const romanToIntMap = new Map([
-        ['I', 1],
-        ['V', 5],
-        ['X', 10],
-        ['L', 50],
-        ['C', 100],
-        ['D', 500],
-        ['M', 1000]
-    ]);
-
-    let sum = 0
-    let prevValue = 0
-
-    for (let i = 0; i < s.length; i++) {
-        if(i !== 0){
-            prevValue = romanToIntMap.get(s[i - 1])
-            currentValue = romanToIntMap.get(s[i])
-            sum += currentValue
-            if(currentValue > prevValue){
-                sum -= prevValue* 2
-            }
+var romanToInt = function(s) {
+    const v = {I: 1, V: 5, X: 10, L: 50, C: 100, D: 500, M: 1000};
+    romanLength = s.length
+    result = 0
+    i = 0
+    while(i < romanLength){
+        if(v[s[i]] < v[s[i+1]]){
+            result += (v[s[i+1]] - v[s[i]])
+            i += 2
         }else{
-            sum += romanToIntMap.get(s[i])
+            result += v[s[i]]
+            i ++
         }
-
     }
-    return sum
+
+    return result
 };
