@@ -4,14 +4,16 @@
  * @return {boolean}
  */
 var isSubsequence = function(s, t) {
-    var prevSubsequence = 0
-    for(let i = 0;i < s.length;i++){
-        // t.indexOf(s.)
-        if(t.indexOf(s[i]) == -1){
-            return false
+    sIndex = 0
+    tIndex = 0
+    while(sIndex < s.length && tIndex < t.length){
+        if(s[sIndex] === t[tIndex]){
+            sIndex++
+            tIndex++
+        }else{
+            tIndex++
         }
-        t = t.slice(t.indexOf(s[i])+1, t.length);
     }
 
-    return true
+    return sIndex === s.length
 };
