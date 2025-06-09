@@ -3,25 +3,23 @@
  * @return {string[]}
  */
 var summaryRanges = function (nums) {
-    var result = []
-    var start = nums[0]
-    var end = start
+    result = []
+    start = nums[0]
+    end = nums[0]
     for (let i = 1; i <= nums.length; i++) {
-        if (nums[i] == end + 1) {
+        console.log("i is", i)
+        if (nums[i] === (end + 1)) {
             end = nums[i]
-        }
-        else {
+        }else {
             if (start === end) {
                 result.push(`${end}`)
-            }else{
+            } else {
                 result.push(`${start}->${end}`)
             }
             start = nums[i]
-            end = start
-
+            end = nums[i]
         }
     }
-
 
     return result
 };
