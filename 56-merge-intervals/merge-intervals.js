@@ -3,25 +3,28 @@
  * @return {number[][]}
  */
 var merge = function (intervals) {
-    // intervals.sort((a,b) => a[0] - b[0])
-    intervals.sort((a, b) => a[0] - b[0])
-    var mergedIntervals = intervals[0]
-    var result = []
-    result.push(mergedIntervals)
-    for (let i = 1; i < intervals.length; i++) {
-        let newInterval = []
-        if (mergedIntervals[1] >= intervals[i][0]) {
-            result.splice(result.length - 1, 1)
-            newInterval = [mergedIntervals[0], Math.max(intervals[i][1],mergedIntervals[1] )]
-            result.push(newInterval)
-        } else {
-            newInterval = intervals[i]
-            result.push(newInterval)
+    intervals = intervals.sort((a,b) => a[0] - b[0])
+    result = []
+    start = intervals[0][0]
+    end = intervals[0][1]
+    count = 0
+    for (let i = 1; i <= intervals.length; i++) {
+        if(i == intervals.length){
+            result.push([start, end])
+            break
         }
-        mergedIntervals = newInterval
-        // console.log("mergedIntervals" ,mergedIntervals)
+        if (end >= intervals[i][0]) {
+            if(intervals[i][1] > end){
+                 end = intervals[i][1]
+            }
+            // end = intervals[i][1]
+        } else {
+            result.push([start, end])
+            start = intervals[i][0]
+            end = intervals[i][1]
+            count++
+        }
     }
 
     return result
-    // console.log("result", result)
 };
