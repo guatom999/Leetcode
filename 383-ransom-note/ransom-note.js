@@ -4,12 +4,33 @@
  * @return {boolean}
  */
 var canConstruct = function (ransomNote, magazine) {
-    // return magazine.indexOf(ransomNote) == -1 ? false : true
+    var ransomeMap = new Map()
+    var magazineMap = new Map()
     for (let i = 0; i < ransomNote.length; i++) {
-        if (magazine.indexOf(ransomNote[i]) == -1) {
+        if (ransomeMap[ransomNote[i]] !== undefined) {
+            ransomeMap[ransomNote[i]] += 1
+        } else {
+            ransomeMap[ransomNote[i]] = 1
+        }
+    }
+
+    for (let i = 0; i < magazine.length; i++) {
+        if (ransomeMap[magazine[i]]) {
+            ransomeMap[magazine[i]] -= 1
+        }
+    }
+
+    for (let x in ransomeMap) {
+
+        if (ransomeMap[x] > 0) {
             return false
         }
-        magazine = magazine.slice(0, magazine.indexOf(ransomNote[i])) + magazine.slice(magazine.indexOf(ransomNote[i]) + 1);
     }
+
     return true
+
+
+
+    console.log("ransomeMap", ransomeMap)
+
 };
