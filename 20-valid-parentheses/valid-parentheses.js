@@ -6,7 +6,6 @@ var isValid = function (s) {
     maps = { ')': '(', '}': '{', ']': '[' }
     stack = []
     for (let i = 0; i < s.length; i++) {
-        console.log(stack)
         if (maps[s[i]] === undefined) {
             stack.push(s[i])
         } else {
