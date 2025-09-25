@@ -4,16 +4,14 @@
  * @return {number[]}
  */
 var twoSum = function (nums, target) {
-    var numsDif = new Map()
+    var numsdiff = new Map()
     var result = []
     for (let i = 0; i < nums.length; i++) {
         diff = target - nums[i]
-        if (numsDif[nums[i]] !== undefined) {
-            result.push(numsDif[nums[i]], i)
+        if (numsdiff[diff] != undefined) {
+            result.push(numsdiff[diff], i)
         }
-        numsDif[diff] = i
+        numsdiff[nums[i]] = i
     }
-
-
     return result
 };
