@@ -10,7 +10,6 @@ var mySqrt = function (x) {
         if((i * i) <= x){
             continue
         }
-        console.log("i" , i)
         return i - 1
     }
 };
