@@ -3,15 +3,19 @@
  * @return {string}
  */
 var reverseWords = function (s) {
-    newWord = s.trim().split(" ")
-    result = []
-    for (let i = newWord.length - 1; i >= 0; i--) {
-        if (newWord[i] == "" || newWord[i] == " ") {
-            continue
-        } else {
-            result.push(newWord[i])
+    afterTrim = s.trim().split(" ")
+    result = ""
+
+    for (let i = afterTrim.length - 1; i >= 0; i--) {
+        if (afterTrim[i] !== '') {
+            if (i !== 0) {
+                result += afterTrim[i] + " "
+            } else {
+                result += afterTrim[i]
+            }
         }
     }
 
-    return result.join(" ").trim()
+    return result
+
 };
