@@ -3,20 +3,19 @@
  * @return {number}
  */
 var findClosestNumber = function (nums) {
-    bfSort = []
-    for (let i = 0; i < nums.length; i++) {
-        bfSort.push(Math.abs(nums[i]))
-    }
-    min = 0
+    closet = 0
+
     for (let i = 1; i < nums.length; i++) {
-        if (bfSort[i] < bfSort[min]) {
-            min = i
-        } else if (bfSort[i] == bfSort[min]) {
-            if(nums[i] > nums[min]){
-                min = i
+        console.log(closet)
+        if (Math.abs(nums[i]) == Math.abs(nums[closet])) {
+            if (nums[i] > nums[closet]){
+                closet = i
             }
         }
+        else if(Math.abs(nums[i]) < Math.abs(nums[closet])) {
+            closet = i
+        }
     }
-    return nums[min]
 
+    return nums[closet]
 };
